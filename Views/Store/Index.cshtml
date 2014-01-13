@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CSP.Data.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+}
+
+
+
+<table cellspacing="10">
+<tr>
+@foreach (var item in Model) 
+{     
+        <td width="180px">
+            <a href="@Url.Action("Details", "Store", new {id = item.product_id})">
+                <div class="prodCell">
+                    <img src="~/Images/@item.imagepath" />
+                    <br />
+
+                    @Html.DisplayFor(modelItem => item.product_name)
+                    <br />
+
+                    @Html.DisplayFor(modelItem => item.product_price)
+                </div>
+            </a>
+        </td>
+    count += 1;
+    if (count % 5 == 0)
+    {
+        @:</tr><tr>
+    }
+      
+}
+    @if (count % 5 != 0)
+    {
+        for (int i = 5-(count % 5); i > 0; i--)
+        {
+            <td width="180px">
+
+            </td>
+        }
+    }
+
+
+    
+
+</tr>
+</table>

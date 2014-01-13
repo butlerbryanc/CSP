@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <title>Beyonce Week</title>
+</head>
+
+<div id="mainContent">
+    <div class="indexCell">
+        <a href="@Url.Action("Index", "Store", new { category = 0, menuId = 0 })"><img src="~/images/StoreBeyonce.jpg" alt="Shop" /></a>
+    </div>
+    <div class="indexCell2">
+        <a href="@Url.Action("Index", "Register")"><img src="~/images/RegisterBeyonce.jpg" alt="Register" /></a>
+
+    </div>
+    <div class="indexCell3">
+        <img src="~/images/OurStoryBeyonce.jpg" alt="OurStory" />
+    </div>
+    <div class="indexCell4">
+        <img src="~/images/ContactUsBeyonce.jpg" alt="ContactUs" />
+    </div>
+
+    <img src="" />
+</div>
+
+
+

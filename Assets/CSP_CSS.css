@@ -1,0 +1,103 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+
+html, body {
+    height: 100%;
+}
+#container {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 960px;
+    -moz-box-shadow:    0px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 0px 3px 5px 6px #ccc;
+    box-shadow:         0px 3px 5px 6px #ccc;
+}
+#container #header .logo {
+	clear: right;
+	float: left;
+	height: 70px;
+	width: 160px;
+	overflow: hidden;
+}
+
+#container #header {
+	height: 70px;
+	width: 960px;
+}
+#container #productBanner {
+	height: 120px;
+	width: 960px;
+	margin-bottom: 5px;
+}
+
+#container #productHeader {
+	font-size: 16px;
+	height: 40px;
+	width: 960px;
+}
+#container #productHeader h3 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	text-align: center;
+	vertical-align: middle;
+}
+#container #mainContent {
+	width: 960px;
+    min-height: 100%;
+}
+
+#container #mainContent .indexCell {
+    float: left;
+}
+
+#container #mainContent .indexCell2 {
+    float: left;
+    margin-left: 6.67px;
+}
+
+#container #mainContent .indexCell3 {
+    float: left;
+    margin-left: 6.67px;
+}
+
+#container #mainContent .indexCell4 {
+    float: left;
+    margin-left: 6.68px;
+}
+
+td a {
+    text-decoration: none;
+    color: black;
+}
+
+.prodCell:hover {
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+
+
+
+
+#container #footer {
+	height: 150px;
+	width: 960px;
+}
+#header #Register {
+	width: 300px;
+	position: relative;
+	left: 70px;
+}
+#header #Register ul li ul li a {
+	text-align: left;
+}
+
+
+
+
+

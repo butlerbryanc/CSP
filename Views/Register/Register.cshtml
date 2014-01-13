@@ -1,0 +1,42 @@
+﻿@model CSP.Data.User
+
+@{
+    ViewBag.Title = "LogOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Registration Failed, fields.");
+    <div>
+        <fieldset>
+            <legend>Register Form</legend>
+            <div class="editor-label">@Html.LabelFor(u => u.email)</div>
+            <div class="editor-field">@Html.TextBoxFor(u=> u.email)
+                @Html.ValidationMessageFor(u => u.email)
+            </div>
+
+            <div class="editor-label">@Html.LabelFor(u => u.password)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.password)
+            @Html.ValidationMessageFor(u => u.password)
+            </div>
+
+            <div class="editor-label">@Html.LabelFor(u => u.first_name)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.first_name)
+            @Html.ValidationMessageFor(u => u.first_name)
+            </div>
+
+            <div class="editor-label">@Html.LabelFor(u => u.last_name)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.last_name)
+            @Html.ValidationMessageFor(u => u.last_name)
+            </div>
+
+            <input type="submit" value="Register"/>
+        </fieldset>
+    </div>
+}

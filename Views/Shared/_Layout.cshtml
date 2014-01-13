@@ -1,0 +1,105 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Untitled Document</title>
+    <link href="~/assets/Index.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/CSP_CSS.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/menu.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="header">
+            <div class="logo"> <a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Images/CSP-Logo.jpg")" alt="CSP - The Cool Side of the Pillow" width="160" height="70" align="left" id="Logo" /></a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="Home">Home</a></li>
+                    <li>
+                        <a href="@Url.Action("Index", "Store", new { category = 0, menuId = 1 })">Fashion Bedding</a>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 1, menuId = 0 })">Comforter Sets</a></li>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 2, menuId = 0 })">Duvet Covers</a></li>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 3, menuId = 0 })">Quilts and Bedspreads</a></li>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 4, menuId = 0 })">Bed-in-a-Bag</a></li>
+                            <li><a class="botList" href="@Url.Action("Index", "Store", new { category = 5 })">Kids and Teen Bedding</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Store", new { category = 0, menuId = 2 })">Sheets</a>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 6, menuId = 0 })">Solid Sheets</a></li>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 7, menuId = 0 })">Printed Sheets</a></li>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 8, menuId = 0 })">Deep Pocket Sheets</a></li>
+                            <li><a class="botList" href="@Url.Action("Index", "Store", new { category = 9, menuId = 0 })">Flannel Sheets</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="comforters" href="@Url.Action("Index", "Store", new { category = 0, menuId = 3 })">Pillows</a>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 10, menuId = 0 })">Pillows</a></li>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 11, menuId = 0 })">Pillow Protectors</a></li>
+                            <li><a class="botList" href="@Url.Action("Index", "Store", new { category = 12, menuId = 0 })">Decorative Pillows</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="more" href="@Url.Action("Index", "Store", new { category = 0, menuId = 4 })">More</a>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 13, menuId = 0 })">Bed Skirts</a></li>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 14, menuId = 0 })">Canopies</a></li>
+                            <li><a href="@Url.Action("Index", "Store", new { category = 15, menuId = 0 })">Throws & Blankets</a></li>
+                            <li><a class="botList" href="@Url.Action("Index", "Store", new { category = 16, menuId = 0 })">Mattress Pads</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu" id="Register">
+                <ul>
+                    <li><a href="@Url.Action("Index", "Register")">Your Account</a>
+                        <ul>
+                            @if(Request.IsAuthenticated)
+                            {
+                                <li><a>@Html.Encode(User.Identity.Name)</a></li>
+                                <li><a href="@Url.Action("Logout", "Register")">Log Out</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Register", "Register")">Register</a></li>
+                                <li><a href="@Url.Action("LogIn", "Register")">Log In</a></li>
+                            }
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "ShoppingCart")">Your Cart</a>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "ShoppingCart")">Order History</a></li>
+                            <li><a href="@Url.Action("Index", "ShoppingCart")">Account Info</a></li>
+                            <li><a href="@Url.Action("Index", "ShoppingCart")">Refer-a-Friend</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            </div>
+
+
+
+
+
+
+        <div id="productBanner"><img src="@Url.Content("~/Images/MLP_Banner.jpg")" width="960" height="120" alt="ProductBanner"></div>
+
+            @RenderBody()
+
+
+        <div id="footer">
+
+        </div>
+</div>
+
+
+
+
+</body>
+</html>

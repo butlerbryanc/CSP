@@ -1,0 +1,24 @@
+﻿@using CSP.Controllers;
+@model CSP.Data.Product
+
+@{
+    ViewBag.Title = "Item - " + Model.product_name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.product_name</h2>
+<p>
+    <img alt="@Model.product_name" src="~/Images/@Model.imagepath"/>
+</p>
+
+<div id="product-details">
+    <p>
+        <em>Price</em>
+        @String.Format("$"+"{0:F}", Model.product_price)
+    </p>
+
+    <p class="button">
+        <a href="@Url.Action("AddToCart", "ShoppingCart", new { id = Model.product_id})">Add to Cart</a>
+    </p>
+</div>
+

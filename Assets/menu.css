@@ -1,0 +1,78 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.menu {
+	background-color: #FFF;
+	width: 424px;
+	float: left;
+}
+.menu ul ul {
+	display: none;
+	float: left;
+}
+.menu ul li ul li .botList {
+	border-bottom-style: outset;
+	border-bottom-color: #CFF;
+	border-right-width: 1px;
+}
+
+
+.menu ul {
+	list-style: none;
+	position: relative;
+	display: inline-block;
+	top: 25px;
+	right: 40px;
+}
+
+.menu ul li {
+	float: left;
+	background-color:#fff;
+}
+
+.menu ul li a {
+	padding: 5px 10px 5px 10px;
+	display: block;
+	color: #000;
+	text-decoration: none;
+}
+.menu ul li ul li a {
+	font-size: 12px;
+	color: #333;
+}
+
+
+.menu ul li:hover > a {
+	color:#09C;
+	background-color:#FFF;
+}
+
+.menu ul li:hover > ul {
+	display: block;
+	padding:0px;
+}
+
+.menu ul li:hover > ul li {
+	display: block;
+}
+
+.menu ul li:hover > ul li a {
+	min-width: 150px;
+}
+
+.menu ul li:hover > ul li a:hover {
+	color:#09C;
+}
+
+.menu ul li ul li:hover a {
+	background-color:#FFF;
+}
+
+.menu ul li {
+	position: relative;
+}
+
+.menu ul li ul {
+	position: absolute;
+	left:0px;
+}
