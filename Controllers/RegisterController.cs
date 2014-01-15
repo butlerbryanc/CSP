@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-
+using CSP.Models;
 using CSP.Data;
 using System.Data.Entity.Validation;
 
@@ -35,7 +35,13 @@ namespace CSP.Controllers
         {
             if(IsValid(user.email, user.password))
             {
+                var cart = ShoppingCart.GetCart(this.HttpContext);
+                cart.MigrateCart(user.email); 
+                
                 FormsAuthentication.SetAuthCookie(user.email, false);
+                Session.Abandon();
+
+
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -81,6 +87,12 @@ namespace CSP.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
+            Session.Abandon();
+
+            //HttpCookie tempCookie = new HttpCookie("ASP.Net_SessionId", "");
+            //tempCookie.Expires = DateTime.Now.AddYears(-1);
+            //Response.Cookies.Add(tempCookie);
+
             return RedirectToAction("Index", "Home");
         }
 

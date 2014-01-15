@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CSPDataStoreContainer" CdmEntityContainer="CSPEntities">
+  <EntityContainerMapping StorageEntityContainer="CSPModelStoreContainer" CdmEntityContainer="CSPEntities">
     <EntitySetMapping Name="Carts">
-      <EntityTypeMapping TypeName="CSP.Data.Cart">
+      <EntityTypeMapping TypeName="CSPModel.Cart">
         <MappingFragment StoreEntitySet="Cart">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="cart_id" ColumnName="cart_id" />
@@ -13,7 +13,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="CSP.Data.Order">
+      <EntityTypeMapping TypeName="CSPModel.Order">
         <MappingFragment StoreEntitySet="Order">
           <ScalarProperty Name="order_id" ColumnName="order_id" />
           <ScalarProperty Name="first_name" ColumnName="first_name" />
@@ -25,7 +25,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderDetails">
-      <EntityTypeMapping TypeName="CSP.Data.OrderDetail">
+      <EntityTypeMapping TypeName="CSPModel.OrderDetail">
         <MappingFragment StoreEntitySet="OrderDetail">
           <ScalarProperty Name="order_detail_id" ColumnName="order_detail_id" />
           <ScalarProperty Name="order_id" ColumnName="order_id" />
@@ -36,7 +36,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="CSP.Data.Product">
+      <EntityTypeMapping TypeName="CSPModel.Product">
         <MappingFragment StoreEntitySet="Product">
           <ScalarProperty Name="product_id" ColumnName="product_id" />
           <ScalarProperty Name="product_name" ColumnName="product_name" />
@@ -48,7 +48,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="CSP.Data.User">
+      <EntityTypeMapping TypeName="CSPModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="user_id" ColumnName="user_id" />
           <ScalarProperty Name="email" ColumnName="email" />

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CSP.Models;
 
 
 namespace CSP.Controllers
@@ -17,6 +18,7 @@ namespace CSP.Controllers
 
         public ActionResult Index(int category=0, int menuId = 0)
         {
+
             CSPEntities context = new CSPEntities();
             if (category == 0 && menuId == 0)
             {
@@ -65,6 +67,7 @@ namespace CSP.Controllers
 
             return View(prod);
         }
+
         
     }
 }

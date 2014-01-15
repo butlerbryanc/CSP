@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4ff52841611d4bdf83c20ac1455156f0" Name="Diagram1">
-        <EntityTypeShape EntityType="CSP.Data.Cart" Width="1.5" PointX="4.375" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CSP.Data.Order" Width="1.5" PointX="1.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CSP.Data.OrderDetail" Width="1.5" PointX="1.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CSP.Data.Product" Width="1.5" PointX="6.5" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CSP.Data.User" Width="1.5" PointX="8.625" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="CSP.Data.FK_Cart_ToTable" />
-        <AssociationConnector Association="CSP.Data.FK_OrderDetail_ToTable" />
-        <AssociationConnector Association="CSP.Data.FK_OrderDetail_ToTable_1" />
+      <Diagram DiagramId="864a56709b014ea9b2499b0756e8676a" Name="Diagram1">
+        <EntityTypeShape EntityType="CSPModel.Cart" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CSPModel.Order" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CSPModel.OrderDetail" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CSPModel.Product" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CSPModel.User" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="CSPModel.FK_Cart_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="CSPModel.FK_OrderDetail_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="CSPModel.FK_OrderDetail_ToTable_1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

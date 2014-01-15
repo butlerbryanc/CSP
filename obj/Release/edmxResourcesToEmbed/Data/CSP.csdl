@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CSP.Data" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="cart_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="count" Type="Int32" />
+    <Property Name="date_created" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="CSP.Data.FK_Cart_ToTable" FromRole="Cart" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="total" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="order_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OrderDetails" Relationship="CSP.Data.FK_OrderDetail_ToTable" FromRole="Order" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="order_detail_id" />
+    </Key>
+    <Property Name="order_detail_id" Type="Int32" Nullable="false" />
+    <Property Name="order_id" Type="Int32" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="product_price" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Order" Relationship="CSP.Data.FK_OrderDetail_ToTable" FromRole="OrderDetail" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="CSP.Data.FK_OrderDetail_ToTable_1" FromRole="OrderDetail" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="category_id" Type="Int32" />
+    <Property Name="menu_id" Type="Int32" />
+    <Property Name="imagepath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Carts" Relationship="CSP.Data.FK_Cart_ToTable" FromRole="Product" ToRole="Cart" />
+    <NavigationProperty Name="OrderDetails" Relationship="CSP.Data.FK_OrderDetail_ToTable_1" FromRole="Product" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="password_salt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="CSPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Carts" EntityType="Self.Cart" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Cart_ToTable" Association="CSP.Data.FK_Cart_ToTable">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_ToTable" Association="CSP.Data.FK_OrderDetail_ToTable">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_ToTable_1" Association="CSP.Data.FK_OrderDetail_ToTable_1">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Cart_ToTable">
+    <End Type="CSP.Data.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="CSP.Data.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_ToTable">
+    <End Type="CSP.Data.Order" Role="Order" Multiplicity="0..1" />
+    <End Type="CSP.Data.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_ToTable_1">
+    <End Type="CSP.Data.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="CSP.Data.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
